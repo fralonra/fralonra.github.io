@@ -20,9 +20,9 @@ function getConfig () {
     babel(babelOption),
     serve({
       open: true,
-      contentBase: ''
+      contentBase: 'public'
     }),
-    livereload('dist')
+    livereload('public')
   ]
   for (let file of files) {
     config.push(makeConfig(file, {

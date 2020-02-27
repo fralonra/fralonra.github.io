@@ -12,7 +12,7 @@ export function makeConfig (file, options) {
   return {
     input: file + '/index.js',
     output: {
-      file: `dist/${fileName}.js`,
+      file: `public/dist/${fileName}.js`,
       format: 'iife',
       name: fileName
     },
