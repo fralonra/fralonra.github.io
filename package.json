@@ -1,8 +1,7 @@
 {
-  "name": "wgl-demo",
+  "name": "fralonra.github.io",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
   "scripts": {
     "build": "rollup -c build/rollup.config.js",
     "watch": "rollup -c build/rollup.config.dev.js --watch",

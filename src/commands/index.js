@@ -1,8 +1,10 @@
+const baseURL = 'https://fralonra.github.io/'
+
 const commands = [{
-  label: 'Aomori',
-  command: 'aomori',
+  label: 'Rona',
+  command: 'rona',
   action () {
-    window.open('https://www.google.com', '_blank')
+    window.open(baseURL + 'rona', '_blank')
   }
 }]
 
