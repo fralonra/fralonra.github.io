@@ -17,7 +17,7 @@ cmdMap.help = {
   text: 'Bailing out, you are on your own. Good luck.'
 }
 cmdMap.exit = {
-  text: `You haven't got enough Orb of Toz. The door won't open for you.`
+  text: 'You haven\'t got enough Orb of Toz. The door won\'t open for you.'
 }
 cmdMap.reboot = {
   text: 'Rebooting...',
@@ -47,6 +47,10 @@ function command (cmd) {
 }
 
 function init () {
+  window.addEventListener('booted', setupTTY)
+}
+
+function setupTTY () {
   let cmd = []
   const fontSize = 15
   const term = new xterm.Terminal({

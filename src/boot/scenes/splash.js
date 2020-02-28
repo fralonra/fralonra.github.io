@@ -10,11 +10,16 @@ const LOADING_PROCESS_INTERVAL = 800
 const LOADING_TIME = (Math.random() * 3.2 + 0.32) * 1000
 
 class Dot {
-  constructor (options = {}) {
-    this.x = options.x || 0
-    this.y = options.y || 0
-    this.r = options.r || LOADING_DOT_RADIUS
-    this.color = options.color || LOADING_DOT_COLOR_NORMAL
+  constructor ({
+    x = 0,
+    y = 0,
+    r = LOADING_DOT_RADIUS,
+    color = LOADING_DOT_COLOR_NORMAL
+  }) {
+    this.x = x
+    this.y = y
+    this.r = r
+    this.color = color
   }
 
   draw (ctx) {
@@ -24,7 +29,7 @@ class Dot {
     ctx.arc(this.x, this.y, this.r, 0, 2 * Math.PI)
     ctx.closePath()
     const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r)
-    gradient.addColorStop(.4, this.color)
+    gradient.addColorStop(0.4, this.color)
     gradient.addColorStop(1, this.color + '00')
     ctx.fillStyle = gradient
     ctx.fill()
@@ -91,8 +96,8 @@ class Loading extends AnimeItem {
     } else {
       this.changeHighlightDotColor(ctx)
       this.highlightDotIndex = this.highlightDotIndex >= this.dots.length - 1
-      ? 0
-      : this.highlightDotIndex + 1
+        ? 0
+        : this.highlightDotIndex + 1
       this.changeHighlightDotColor(ctx, LOADING_DOT_COLOR_HIGHLIGHT)
     }
   }
@@ -125,6 +130,7 @@ class Splash extends Scene {
     loading.addEventListener('end', e => {
       this.hide()
       document.body.removeChild(document.getElementById('boot'))
+      window.dispatchEvent(new Event('booted'))
     })
     this.anime.add(loading)
     this.anime.run()
