@@ -16,11 +16,12 @@ function getConfig () {
     resolve(),
     postcss(),
     commonjs(),
-    babel(babelOption)
+    babel(babelOption),
+    terser()
   ]
   for (let file of files) {
     config.push(makeConfig(file, {
-      plugins: [...basicPlugins, terser()]
+      plugins: basicPlugins
     }))
   }
   return config

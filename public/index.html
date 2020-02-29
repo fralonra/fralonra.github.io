@@ -20,5 +20,12 @@
   <div id="tty"></div>
   <script src="dist/boot.js"></script>
   <script src="dist/tty.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+      })
+    }
+  </script>
 </body>
 </html>

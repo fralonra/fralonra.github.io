@@ -2,19 +2,27 @@ export const babelOption = {
   presets: [['@babel/env', { modules: false }]]
 }
 
-export const files = [
-  'src/boot',
-  'src/tty'
-]
+export const files = [{
+  name: 'boot',
+  entry: 'src/boot/index.js'
+}, {
+  name: 'tty',
+  entry: 'src/tty/index.js'
+}, {
+  name: 'sw',
+  entry: 'src/sw.js',
+  dest: 'public/'
+}]
+
+const defaultDest = 'public/dist/'
 
 export function makeConfig (file, options) {
-  const fileName = file.split('/').pop()
   return {
-    input: file + '/index.js',
+    input: file.entry,
     output: {
-      file: `public/dist/${fileName}.js`,
+      file: (file.dest || defaultDest) + `${file.name}.js`,
       format: 'iife',
-      name: fileName
+      name: file.name
     },
     ...options
   }

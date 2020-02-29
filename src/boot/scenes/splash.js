@@ -127,7 +127,7 @@ class Splash extends Scene {
     this.anime = new Anime(this.ctx)
 
     const loading = new Loading(this.ctx.canvas.width, this.ctx.canvas.height)
-    loading.addEventListener('end', e => {
+    loading.addEventListener('end', () => {
       this.hide()
       document.body.removeChild(document.getElementById('boot'))
       window.dispatchEvent(new Event('booted'))

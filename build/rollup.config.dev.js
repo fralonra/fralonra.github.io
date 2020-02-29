@@ -21,12 +21,15 @@ function getConfig () {
     serve({
       open: true,
       contentBase: 'public'
-    }),
-    livereload('public')
+    })
   ]
+  const livereloadPlugins = livereload('public')
   for (let file of files) {
+    const plugins = file.name === 'sw'
+      ? basicPlugins
+      : [...basicPlugins, livereloadPlugins]
     config.push(makeConfig(file, {
-      plugins: basicPlugins
+      plugins
     }))
   }
   return config

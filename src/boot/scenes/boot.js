@@ -72,7 +72,7 @@ class Boot extends Scene {
     this.anime = new Anime(this.ctx)
 
     const loading = new Loading(this.ctx.canvas.width, this.ctx.canvas.height)
-    loading.addEventListener('end', e => {
+    loading.addEventListener('end', () => {
       this.hulu.switch('SPLASH')
     })
     this.anime.add(loading)

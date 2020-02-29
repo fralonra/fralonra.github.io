@@ -89,4 +89,5 @@ typings/
 out/
 
 yarn.lock
+public/sw.js
 dist/
