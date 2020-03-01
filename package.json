@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "regenerator-runtime": "^0.13.3",
+    "workbox-routing": "^5.0.0",
+    "workbox-strategies": "^5.0.0",
     "xterm": "^4.4.0",
     "xterm-addon-fit": "^0.3.0"
   },
@@ -20,17 +23,17 @@
     "@babel/preset-env": "^7.8.4",
     "@rollup/plugin-commonjs": "^11.0.2",
     "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/plugin-replace": "^2.3.1",
     "rollup": "^1.31.1",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-livereload": "^1.0.4",
-    "rollup-plugin-postcss": "^2.0.6",
+    "rollup-plugin-postcss": "^2.1.1",
     "rollup-plugin-serve": "^1.0.1",
     "rollup-plugin-terser": "^5.2.0",
     "snazzy": "^8.0.0",
     "standard": "^14.3.1"
   },
   "standard": {
-    "env": ["browser", "serviceworker"],
-    "globals": ["workbox"]
+    "env": "browser"
   }
 }

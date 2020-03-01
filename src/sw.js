@@ -1,6 +1,8 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js')
+import 'regenerator-runtime/runtime'
+import { registerRoute } from 'workbox-routing'
+import { StaleWhileRevalidate } from 'workbox-strategies'
 
-workbox.routing.registerRoute(
+registerRoute(
   /\.js$/,
-  new workbox.strategies.StaleWhileRevalidate()
+  new StaleWhileRevalidate()
 )

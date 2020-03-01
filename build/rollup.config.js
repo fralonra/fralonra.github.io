@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve'
 import postcss from 'rollup-plugin-postcss'
 import commonjs from '@rollup/plugin-commonjs'
+import replace from '@rollup/plugin-replace'
 import babel from 'rollup-plugin-babel'
 import { terser } from 'rollup-plugin-terser'
 
@@ -16,6 +17,9 @@ function getConfig () {
     resolve(),
     postcss(),
     commonjs(),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
     babel(babelOption),
     terser()
   ]
